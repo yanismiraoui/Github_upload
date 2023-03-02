@@ -13,6 +13,8 @@ head(data)
 str(data)
 # Check data dimensions (rows, cols)
 dim(data)
+# Pair plot 
+
 
 
 ### Preprocessing of the data ###
@@ -130,6 +132,8 @@ library(randomForest)
 str(data)
 data_rf <- data[, -c(7, 9)]
 rf <- randomForest(gross ~ ., data = data_rf)
+# Plot variable importance
+varImpPlot(rf)
 # Get residuals
 rf_res <- predict(rf, data_rf) - data$gross
 # Compute MSE
